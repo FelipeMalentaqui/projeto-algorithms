@@ -1,7 +1,9 @@
-def is_palindrome_recursive(word, low_index, high_index):
-    print(high_index)
+def is_palindrome_recursive(word, low_index, high_index, nome=''):
+    # print(high_index)
+    if word == '':
+        return False
 
-    nome = word[high_index]
+    nome += word[high_index]
 
     if word == nome:
         return True
@@ -10,12 +12,11 @@ def is_palindrome_recursive(word, low_index, high_index):
         return False
 
     else:
-        nome += word[high_index]
-        is_palindrome_recursive(word, low_index, high_index - 1)
+        return is_palindrome_recursive(word, low_index, high_index - 1, nome)
 
 
-word = "ANA"
-a = len(word - 1)
+# word = "ANA"
+# a = len(word - 1)
 # saída: True
 
 # word = "SOCOS"
@@ -30,5 +31,7 @@ a = len(word - 1)
 # word = "AGUA"
 # saída: False
 
-print(is_palindrome_recursive(word, 0, a))
+# Em Python, None equivale ao valor nulo (null).
+# Podemos iniciar as variáveis com o valor None .
+# print(is_palindrome_recursive(word, 0, a))
 # is_palindrome_recursive((word, 0, len(word - 1)))
