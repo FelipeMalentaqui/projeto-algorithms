@@ -1,9 +1,10 @@
 def is_anagram(first_string, second_string):
-    if first_string == '' or second_string == '':
-        return False
+    # if not first_string or not second_string:
+    #     return (first_string, second_string, False)
 
-    first_frase = frase_arr(first_string)
-    second_frase = frase_arr(second_string)
+    first_frase = frase_arr(first_string.lower())
+
+    second_frase = frase_arr(second_string.lower())
 
     merge_sort(first_frase, 0, len(first_frase))  # aqui ele guarda a alteração
     # na propria variavel, não precisando retornar mesma coisa no de baixo
@@ -12,14 +13,15 @@ def is_anagram(first_string, second_string):
     first_okay = ''.join(first_frase)
     second_okay = ''.join(second_frase)
 
-    if first_okay == second_okay:
-        return True
+    # print(first_okay, second_okay)
+    if first_okay == '' or second_okay == '':
+        return (first_okay, second_okay, False)
 
-    if first_okay.lower() == second_okay.lower():
-        return True
+    if first_okay == second_okay:
+        return (first_okay, second_okay, True)
 
     if first_okay != second_okay:
-        return False
+        return (first_okay, second_okay, False)
 
 
 def merge_sort(palavras, start=0, end=None):
@@ -65,4 +67,4 @@ def frase_arr(frase):
 
 # merge_sort(palavras, 0, len(palavras))
 # print(palavras)
-# print(is_anagram('camelo', 'meloca'))
+# print(is_anagram('amor', 'Roma'))
